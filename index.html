@@ -1,71 +1,57 @@
 <!DOCTYPE html>
 <html>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width">
+      <title>repl.it</title>
+      <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+      <!-- jQuery library -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <!-- Popper JS -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+      <!-- Latest compiled JavaScript -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/sql-formatter/4.0.2/sql-formatter.min.js" integrity="sha512-JPoVzOHQvXbB4+lOX6GOBM3xOZhwAMKRYn2G0VpfPcwIixAAvPL+HKuaFuevm+i6Q4GktSKY/CxlcB/1BaV/6Q=="
+         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link href="style.css" rel="stylesheet" type="text/css" />
+   </head>
+   <body onload="pageLoad()">
+      <script src="script.js"></script>
+      <!-- <div class='jumbotron jumbotron-fluid' id='main-jumbo'>
+         <h1 class='display-1 text-center'>The Dog</h1>
+         </div> -->
+      <div class='container'>
+         
+            <h1>Enter your question here</h1>
+            <form action="/action_page.php">
+            <div class="form-group row">
+               <label for="fname" >Question</label><br>
+               <div class="col">
+                  <input type="text" class="form-control input-sm" id="question" name="question"
+                     value="Tell me the count of employees working in the department HR."
+                     >
+               </div>
+               <div class="col-2">
 
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width">
-	<title>repl.it</title>
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+               <select name="language" id="language" class="col form-control input-md">
+                  <option value="sql" selected="selected">SQL</option>
+                  <option value="react">React</option>
+               </select>
+               </div>
+                              </div>
 
-	<!-- jQuery library -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+               <div class="row">
+               <label for="answer" >Answer</label><br>
+               <textarea type="text" class="form-control input-sm" id="answer" name="answer" rows="15"></textarea>
+               </div>
+               <br>
+              <button type="button" class="btn btn-primary"
+              onclick="getResponse();"
+              >Submit</button>
 
-	</script>
+            </form>
 
-	<!-- Popper JS -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js">
-
-	</script>
-
-	<!-- Latest compiled JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
-
-	</script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/sql-formatter/4.0.2/sql-formatter.min.js" integrity="sha512-JPoVzOHQvXbB4+lOX6GOBM3xOZhwAMKRYn2G0VpfPcwIixAAvPL+HKuaFuevm+i6Q4GktSKY/CxlcB/1BaV/6Q=="
-	 crossorigin="anonymous" referrerpolicy="no-referrer">
-
-	</script>
-	<link href="style.css" rel="stylesheet" type="text/css" />
-</head>
-
-<body onload="pageLoad()">
-	<script src="script.js">
-
-	</script>
-	<!-- <div class='jumbotron jumbotron-fluid' id='main-jumbo'>
-			<h1 class='display-1 text-center'>The Dog</h1>
-		</div> -->
-
-
-	<div class='container'>
-<div class="form-group row">
-
-		<h1>Enter your question here</h1>
-		<form action="/action_page.php">
-			<label for="fname" >Question</label><br>
-    <div class="col-xs-6">
-
-    <input type="text" class="form-control input-sm" id="question" name="question"
-    value="Tell me the count of employees working in the department HR."
-    >
-  </div>
-  <select name="pets" id="pet-select" class="form-control input-md">
-    <option value="">--Please choose an option--</option>
-    <option value="dog">Dog</option>
-    <option value="cat">Cat</option>
-    <option value="hamster">Hamster</option>
-    <option value="parrot">Parrot</option>
-    <option value="spider">Spider</option>
-    <option value="goldfish">Goldfish</option>
-</select>
-  <label for="answer" >Answer</label><br>
-  <textarea type="text" class="form-control input-sm" id="answer" name="answer" rows="20"></textarea><br>
-
-  <input type="button" onclick="getResponse()" value="Submit">
-</form> 
-</div>
-		</div>
-
-  </body>
+      </div>
+   </body>
 </html>
