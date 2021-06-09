@@ -17,6 +17,29 @@
       <link href="style.css" rel="stylesheet" type="text/css" />
    </head>
    <body onload="pageLoad()">
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.20.0/min/vs/loader.min.js"></script>
+<!-- <script>
+// Based on https://jsfiddle.net/developit/bwgkr6uq/ which just works but is based on unpkg.com.
+// Provided by loader.min.js.
+require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.20.0/min/vs' }});
+window.MonacoEnvironment = { getWorkerUrl: () => proxy };
+let proxy = URL.createObjectURL(new Blob([`
+    self.MonacoEnvironment = {
+        baseUrl: 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.20.0/min'
+    };
+    importScripts('https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.20.0/min/vs/base/worker/workerMain.min.js');
+`], { type: 'text/javascript' }));
+require(["vs/editor/editor.main"], function () {
+    let editor = monaco.editor.create(document.getElementById('container'), {
+        value: `function x() {
+  console.log("Hello world!");
+}`,
+        language: 'javascript',
+        theme: 'vs-dark'
+    });
+    editor.onKeyUp(function(e) { console.log(e); });
+});
+</script> -->
       <script src="script.js"></script>
       <!-- <div class='jumbotron jumbotron-fluid' id='main-jumbo'>
          <h1 class='display-1 text-center'>The Dog</h1>
@@ -42,17 +65,25 @@
                               </div>
 
                <div class="row">
-               <label for="answer" >Answer</label><br>
-               <textarea type="text" class="form-control input-sm" id="answer" name="answer" rows="15"></textarea>
-               </div>
-               <br>
+                
+                 <div class="col-4">
+                    <label for="answer" >Answer</label><br>
+                    <textarea type="text" class="form-control input-sm" id="answer" name="answer" rows="15"></textarea>
+                       <br>
               <button type="button" class="btn btn-primary"
               onclick="getResponse();"
               >Submit</button>
+                 </div>
+                 <div class="col-8">
+                   <div id="placeHolder">&nbsp;</div>
+                </div>
+                <div id="container" style="height:400px;width:1000px;border:1px solid black;">&nbsp;</div>
+               </div>
+            
 
             </form>
                 </br>
-          <div id="placeHolder"></div>
+         
           </div>
       </div>
    </body>

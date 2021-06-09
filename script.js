@@ -18,6 +18,9 @@ WHERE
   typeWriter();
 
 }
+
+
+
 function getResponse() {
   //console.log('https://apicrabsandcakes.venkspr.repl.co/app/?question='+document.getElementById('question').value);
   var _query
@@ -82,12 +85,13 @@ function typeWriter() {
 }
 
 function logKey(e) {
-  if (`${e.key}` != undefined & (e.keyCode >= 65 && e.keyCode <= 90) ){
-      comment+=`${e.key}`;
+  console.log(e.browserEvent.key);
+  if (IsAlphaNumericTour(e.browserEvent.key) &&  e.browserEvent.key.length<2){
+          console.log('inside logkey');
+      comment+= e.browserEvent.key;
+      console.log(comment);
   }
-  if(e.keyCode==32){
-    comment+= `${e.key}`;
-  }
+  
   if (e.keyCode==8)
     comment=comment.slice(0, -1)
 
@@ -132,3 +136,32 @@ document.getElementById('answer').addEventListener('keyup', logKey);
   // document.getElementById('answer').value=window.sqlFormatter.format('select * From dual');
 log = document.getElementById('placeHolder');
 };
+
+require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.20.0/min/vs' }});
+window.MonacoEnvironment = { getWorkerUrl: () => proxy };
+let proxy = URL.createObjectURL(new Blob([`
+    self.MonacoEnvironment = {
+        baseUrl: 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.20.0/min'
+    };
+    importScripts('https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.20.0/min/vs/base/worker/workerMain.min.js');
+`], { type: 'text/javascript' }));
+require(["vs/editor/editor.main"], function () {
+    let editor = monaco.editor.create(document.getElementById('container'), {
+        value: `function x() {
+  console.log("Hello world!");
+}`,
+        language: 'html',
+        theme: 'vs-dark'
+    });
+    editor.onKeyUp(function(e) { console.log(e); 
+        console.log(e.browserEvent.keyCode);
+    logKey(e); });
+});
+
+function IsAlphaNumericTour(e) {
+  var key = e;
+  var regex = new RegExp(/[a-zA-Z0-9 ]/);
+  var ret = regex.test(e);
+  // This method returns true if it finds a match, otherwise it returns false.
+  return ret;
+}
