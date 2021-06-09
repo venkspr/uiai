@@ -23,25 +23,26 @@
          </div> -->
       <div class='container'>
          <h1>Enter your question here</h1>
-         <div class="form-group row">
-            <form action="#" class="col-12">
-               <label for="fname" >Question</label><br>
-               <div class="col-8">
+           <form action="#" >
+           <div class="row">
+            <div class="col">
                   <input type="text" class="form-control input-sm" id="question" name="question"
                      value="Tell me the count of employees working in the department HR."
                      >
-               </div>
-               <div class="col-4">
+            </div>
+            <div class="col-2">
                   <select name="language" id="language" class="col form-control input-md">
                      <option value="sql" selected="selected">SQL</option>
                      <option value="react">React</option>
                   </select>
-                  <button type="button" class="btn btn-primary"
+            </div>
+            <div class="col-2">
+              <button type="button" class="btn btn-primary"
                      onclick="getResponse();"
                      >Submit</button>
-               </div>
-            </form>
-         </div>
+            </div>
+            </div>
+         </form>
          <div class="row">
             <div class="col-4">
                <label for="answer" >Answer</label><br>
@@ -49,11 +50,11 @@
                <br>
             </div>
             <div class="col-8">
+               </br>
                <div id="placeHolder"></div>
             </div>
          </div>
          </br>
-      </div>
       </div>
    </body>
 </html>
