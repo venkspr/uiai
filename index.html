@@ -22,38 +22,38 @@
          <h1 class='display-1 text-center'>The Dog</h1>
          </div> -->
       <div class='container'>
-         
-            <h1>Enter your question here</h1>
-            <form action="/action_page.php">
-            <div class="form-group row">
+         <h1>Enter your question here</h1>
+         <div class="form-group row">
+            <form action="#" class="col-12">
                <label for="fname" >Question</label><br>
-               <div class="col">
+               <div class="col-8">
                   <input type="text" class="form-control input-sm" id="question" name="question"
                      value="Tell me the count of employees working in the department HR."
                      >
                </div>
-               <div class="col-2">
-
-               <select name="language" id="language" class="col form-control input-md">
-                  <option value="sql" selected="selected">SQL</option>
-                  <option value="react">React</option>
-               </select>
+               <div class="col-4">
+                  <select name="language" id="language" class="col form-control input-md">
+                     <option value="sql" selected="selected">SQL</option>
+                     <option value="react">React</option>
+                  </select>
+                  <button type="button" class="btn btn-primary"
+                     onclick="getResponse();"
+                     >Submit</button>
                </div>
-                              </div>
-
-               <div class="row">
+            </form>
+         </div>
+         <div class="row">
+            <div class="col-4">
                <label for="answer" >Answer</label><br>
                <textarea type="text" class="form-control input-sm" id="answer" name="answer" rows="15"></textarea>
-               </div>
                <br>
-              <button type="button" class="btn btn-primary"
-              onclick="getResponse();"
-              >Submit</button>
-
-            </form>
-                </br>
-          <div id="placeHolder"></div>
-          </div>
+            </div>
+            <div class="col-8">
+               <div id="placeHolder"></div>
+            </div>
+         </div>
+         </br>
+      </div>
       </div>
    </body>
 </html>
